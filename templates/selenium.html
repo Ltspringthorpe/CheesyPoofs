@@ -5,11 +5,37 @@
         <link rel="icon" type="image/png" href="https://m.media-amazon.com/images/I/717BQwpafqL.jpg"/>
     </head>
 
-    <body style="font-family: sans-serif; padding: 5% 10%; background-image: url('https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/FJPT5455KR5K1589912863345.jpg'); background-size: cover;">
-        {{ mounts }}
+    <body style="margin: 0; position: relative;">
+        <div style="font-family: sans-serif; padding: 5% 10%; z-index: 1;">
+            {{ mounts }}
+        </div>
+
+        <div style="
+                background-image: url('https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/FJPT5455KR5K1589912863345.jpg');
+                background-size: cover;
+                height: 100%;
+                left: 0;
+                min-height: 100vh;
+                opacity: 0.6;
+                pointer-events: none;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                z-index: -1;
+            ">
+        </div>
 
         <footer>
             <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+            <script type="text/javascript">
+                $('inputParams').on('submit', function() {
+                    var toon_1 = $('#toon1').val().trim().toLowerCase();
+                    var realm_1 = $('#realm1').val().trim().toLowerCase();;
+                    var toon_2 = $('#toon2').val().trim().toLowerCase();;
+                    var realm_2 = $('#realm2').val().trim().toLowerCase();;
+                    window.location = window.location.host + '?toon_1=' + toon_1 + '&realm_1=' + realm_1 + '&toon_2=' + toon_2 + '&realm_2=' + realm_2;
+                });
+            </script>
         </footer>
     </body>
 </html>

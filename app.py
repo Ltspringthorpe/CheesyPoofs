@@ -17,13 +17,30 @@ CORS(app)
 
 def favs():
 
-    realm_1 = request.args.get('realm_1', '')
-    toon_1 = request.args.get('toon_1')
-    realm_2 = request.args.get('realm_2')
-    toon_2 = request.args.get('toon_2')
+    toon_1 = request.args.get('toon_1', '').strip().lower()
+    realm_1 = request.args.get('realm_1', '').strip().lower()
+    toon_2 = request.args.get('toon_2', '').strip().lower()
+    realm_2 = request.args.get('realm_2', '').strip().lower()
 
     if not realm_1 or not realm_2 or not toon_1 or not toon_2:
-        return '<div style="color: white;"><strong>ERROR:</strong> Missing Parameters</div>'
+        return """<div>Input Parameters</div><br/>
+            <form id="inputParams">
+                <div>Character 1:</div>
+                <label>Name*&nbsp;&nbsp;</label>
+                <input id="toon1" type="text" name="toon_1" value=\"""" + toon_1 + """\" /><br>
+                <label>Realm*&nbsp;</label>
+                <input id="realm1" type="text" name="realm_1" value=\"""" + realm_1 + """\" /><br>
+                <br>
+                <br>
+                <div>Character 2:</div>
+                <label>Name*&nbsp;&nbsp;</label>
+                <input id="toon2" type="text" name="toon_2" value=\"""" + toon_2 + """\" /><br>
+                <label>Realm*&nbsp;</label>
+                <input id="realm2" type="text" name="realm_2" value=\"""" + realm_2 + """\" /><br>
+                <br>
+                <br>
+                <input type="submit" value="GO!" style="width: 100px;" />
+            </form>"""
 
     a_url = 'https://worldofwarcraft.com/en-us/character/us/' + realm_1 + '/' + toon_1 + '/collections/mounts'
     b_url = 'https://worldofwarcraft.com/en-us/character/us/' + realm_2 + '/' + toon_2 + '/collections/mounts'
@@ -111,21 +128,23 @@ def favs():
             b_favs.append(b_mount);
 
 
-    a_list = '<ol style="color: white;">'
+    a_list = '<ol>'
     for a_fav in a_favs:
         a_list += '<li>' + a_fav + '</li>'
     a_list += '</ol>'
 
-    b_list = '<ol style="color: white;">'
+    b_list = '<ol>'
     for b_fav in b_favs:
         b_list += '<li>' + b_fav + '</li>'
     b_list += '</ol>'
 
-    mounts = '<div style="float: left; width: 50%;"><h4 style="color: white;">' + toon_1.capitalize() + '\'s Cheesy Poofs</h4>'
-    mounts += a_list + '</div>'
-
-    mounts += '<div style="float: left; width: 50%;"><h4 style="color: white;">' + toon_2.capitalize() + '\'s Cheesy Poofs</h4>'
-    mounts += b_list + '</div>'
+    mounts = '<table><thead><tr>'
+    mounts += '<th>' + toon_1.capitalize() + '\'s Cheesy Poofs</th>'
+    mounts += '<th>' + toon_2.capitalize() + '\'s Cheesy Poofs</th>'
+    mounts += '</tr></thead><tbody><tr>'
+    mounts += '<td style="vertical-align: top;">' + a_list + '</td>'
+    mounts += '<td style="vertical-align: top;">' + b_list + '</td>'
+    mounts += '</tr></tbody></table>'
 
     return mounts
 
