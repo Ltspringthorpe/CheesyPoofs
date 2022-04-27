@@ -48,46 +48,59 @@ def favs():
     chrome_options = Options()
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+
+    # FOR RUNNING ON PYTHON ANYWHERE -
+    # web_driver = webdriver.Chrome(options=chrome_options)
+
+    # FOR RUNNING LOCALLY -
     web_driver = webdriver.Chrome(ChromeDriverManager().install())
 
     # store mounts, class/race specific mounts, etc
     exclude_mounts = [
-        'Acherus Deathcharger',
-        'Ban-Lu, Grandmaster\'s Companion',
-        'Deathlord\'s Vilebrood Vanquisher',
-        'Dreadsteed',
-        'Farseer\'s Raging Tempest',
-        'Felsteed',
-        'Mystic Runesaber',
-        'Netherlord\'s Accursed Wrathsteed',
-        'Netherlord\'s Brimstone Wrathsteed',
-        'Netherlord\'s Chaotic Wrathsteed',
-        'Obsidian Nightwing',
-        'Swift Windsteed',
-        'The Dreadwake',
-        'Winged Steed of the Ebon Blade',
-        'X-53 Touring Rocket',
-        'Sapphire Skyblazer'
-        'Hogrus, Swine of Good Fortune',
-        'Sylverian Dreamer',
-        'Winged Guardian',
-        'Celestial Steed',
-        'Enchanted Fey Dragon',
-        'Grinning Reaver',
-        'Heart of the Aspects',
-        'Illidari Felstalker',
-        'Imperial Quilen',
-        'Iron Skyreaver',
-        'Lucky Yun',
-        'Luminous Starseeker',
-        'Mystic Runesaber',
-        'Seabraid Stallion and Gilded Ravasaur',
-        'Shu-Zen, the Divine Sentinel',
-        'Squeakers, the Trickster',
-        'Steamscale Incinerator',
-        'The Dreadwake',
-        'Vulpine Familiar',
-        'Warforged Nightmare'
+        'Acherus Deathcharger', #death knight
+        'Alabaster Stormtalon', #store
+        'Alabaster Thunderwing', #store
+        'Armored Bloodwing', #store
+        'Ban-Lu, Grandmaster\'s Companion', #monk
+        'Celestial Steed', #store
+        'Charger', #paladin
+        'Deathlord\'s Vilebrood Vanquisher', #death knight
+        'Dreadsteed', #warlock
+        'Enchanted Fey Dragon', #store
+        'Farseer\'s Raging Tempest', #shaman
+        'Felsaber', #demon hunter
+        'Felsteed', #warlock
+        'Gilded Ravasaur', #collector's edition
+        'Grinning Reaver', #store
+        'Heart of the Aspects', #store
+        'Hogrus, Swine of Good Fortune', #store
+        'Illidari Felstalker', #collector's edition
+        'Imperial Quilen', #collector's edition
+        'Iron Skyreaver', #store
+        'Lucky Yun', #store
+        'Luminous Starseeker', #store
+        'Mystic Runesaber', #store
+        'Netherlord\'s Accursed Wrathsteed', #warlock
+        'Netherlord\'s Brimstone Wrathsteed', #warlock
+        'Netherlord\'s Chaotic Wrathsteed', #warlock
+        'Obsidian Nightwing', #recruit-a-friend
+        'Sapphire Skyblazer', #promotion
+        'Seabraid Stallion', #collector's edition
+        'Shu-Zen, the Divine Sentinel', #store
+        'Squeakers, the Trickster', #store
+        'Steamscale Incinerator', #store
+        'Swift Windsteed', #store
+        'Sylverian Dreamer', #store
+        'The Dreadwake', #store
+        'Vulpine Familiar', #store
+        'Warforged Nightmare', #store
+        'Warhorse', #paladin
+        'Wen Lo, the River\'s Edge', #store
+        'Winged Guardian', #store
+        'Winged Steed of the Ebon Blade', #death knight
+        'X-53 Touring Rocket' #recruit-a-friend
     ]
 
     with web_driver as driver:
