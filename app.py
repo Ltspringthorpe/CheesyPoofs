@@ -66,12 +66,16 @@ def favs():
         'Ban-Lu, Grandmaster\'s Companion', #monk
         'Celestial Steed', #store
         'Charger', #paladin
+        'Creeping Carpet', #tailoring
         'Deathlord\'s Vilebrood Vanquisher', #death knight
         'Dreadsteed', #warlock
         'Enchanted Fey Dragon', #store
+        'Ensorcelled Everwyrm', #collector's edition
         'Farseer\'s Raging Tempest', #shaman
         'Felsaber', #demon hunter
         'Felsteed', #warlock
+        'Flying Carpet', #tailoring
+        'Frosty Flying Carpet', #tailoring
         'Gilded Ravasaur', #collector's edition
         'Grinning Reaver', #store
         'Heart of the Aspects', #store
@@ -81,6 +85,7 @@ def favs():
         'Iron Skyreaver', #store
         'Lucky Yun', #store
         'Luminous Starseeker', #store
+        'Magnificent Flying Carpet', #tailoring
         'Mystic Runesaber', #store
         'Netherlord\'s Accursed Wrathsteed', #warlock
         'Netherlord\'s Brimstone Wrathsteed', #warlock
